@@ -51,7 +51,7 @@
             <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">x</button>
             </div>
         </div>
-        <div class="section flex gap-3 m-4 flex-wrap w-[95VW] justify-center items-center">
+        <div class="section flex gap-3 m-4 flex-wrap  justify-center items-center">
         
         </div>
     </div>
@@ -68,7 +68,7 @@
 }
         const section = document.querySelector('.section')
         let list ;
-        fetch('/drama.php').then(res=>res.json())
+        fetch('https://sagheeronline7.000webhostapp.com/Talha_drama.php').then(res=>res.json())
         .then(res=>{
             list = res
             console.log(res)
