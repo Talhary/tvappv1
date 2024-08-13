@@ -1,0 +1,162 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drama Selection with Video Player</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <style>
+        body{
+            background-image: url('https://static.vecteezy.com/system/resources/previews/008/968/741/large_2x/multi-layers-yellow-blue-dark-texture-3d-papercut-layers-in-gradient-banner-abstract-paper-cut-art-background-design-for-website-template-topography-map-concept-or-smooth-origami-paper-cut-vector.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white flex flex-col justify-start items-center min-h-screen">
+    <div class="w-[100vw] mx-auto  h-full max-w-xl backdrop-blur-md border border-black shadow">
+
+        <video  playsinline controls id='videoTag' class='w-full max-w-xl mx-auto ' poster='./images/MainBefore.webp' controls title='Video 01' >
+            <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
+                type="video/mp4" data-quality="hd" />
+        </video>
+        <div class="flex gap-x-1 items-center px-2 justify-start     h-20 bg-white bg-opacity-30 w-full">
+            <div class="flex gap-x-1 pb-5">
+                <div>
+                    <img src="./images/MainBefore.webp" class="rotate-[90deg] mt-5 max-w-10 object-contain rounded-full" />
+                </div>
+                
+            </div>
+            <div class=" text-black flex gap-x-2 items-center text-sm px-1 h-20  heading">
+                
+                <div >
+                    <h1 class="text-[0.8rem]">Powered By Fungroup</h1>
+                    <input type="text" placeholder="Enter a Keyword for search" class=" px-2  py-2 my-1 text-black search-input rounded text-[0.7rem]">
+                </div>
+                <button class="bg-white rounded-md  search-btn text-black px-5 py-4"> Search</button>
+            </div>
+            <div class="select-item  hidden">
+                <select name="selectVideo" id="select-ep" class="mx-2 text-black px-2 py-2 ">
+                    <option value="op">Episode 1</option>
+                </select>
+            </div>
+            <div class="btn-section hidden">
+                <button class='play-btn rounded-md p-2 bg-gray-500 bg-gray-200'>Play</button>
+            <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">x</button>
+            </div>
+        </div>
+        <div class="section flex gap-3 m-4 flex-wrap w-[95VW] ">
+        
+        </div>
+    </div>
+    <script>
+          const player = new Plyr('#videoTag');
+         player.pause()
+        function clearSelectOptions() {
+    const selectElement = document.getElementById("select-ep");
+
+    // Remove all options from the select element
+    while (selectElement.options.length > 0) {
+        selectElement.remove(0);
+    }
+}
+        const section = document.querySelector('.section')
+        const list = [
+            { id: 1, title: 'Atish', imgsrc: 'https://i.ibb.co/mhjJHCW/image.png', episodes:['https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8']  },
+            { id: 2, title: 'Mera Sultan', imgsrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpY5Tw-l2EsuwY16Gjx6-6h9Z8Dal63QM0sw&amp;usqp=CAU', episodes:['https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Sultan-1/Episode-2.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Sultan-1/Episode-1.mp4/index.m3u8']  },
+            { id: 3, title: 'Random Videos', imgsrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpY5Tw-l2EsuwY16Gjx6-6h9Z8Dal63QM0sw&amp;usqp=CAU', episodes:['http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4','http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4','http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4']  },
+        ]
+        list.forEach(item => {
+            const div = document.createElement('div')
+            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
+            div.setAttribute('data-id', item.id)
+            div.innerHTML = `<div>
+                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
+                </div>
+                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
+                    ${item.title}
+                </div>`
+            div.addEventListener('click', (e) => {
+                const id  = e.currentTarget.getAttribute('data-id')
+                const episodes= list.find(item => item.id == id).episodes
+                const SelectOption = document.getElementById('select-ep')
+                document.querySelector('.heading').classList.add('hidden')
+                document.querySelector('.select-item').classList.remove('hidden')
+                document.querySelector('.btn-section').classList.remove('hidden')
+                clearSelectOptions()
+                episodes.forEach((episode,i)=>{
+
+                  const option  = document.createElement('option')
+                  option.value = episode;
+                  option.textContent = `Episode ${i+1}`
+                  SelectOption.appendChild(option)
+                })
+            })
+            section.appendChild(div)
+        })
+        document.querySelector('.play-btn').addEventListener('click', () => {
+    const selectOption = document.getElementById('select-ep');
+    const newSrc = selectOption.value;
+
+    player.source = {
+        type: 'video',
+        sources: [
+            {
+                src: newSrc,
+                type: 'video/mp4',
+            }
+        ],
+    };
+
+    // Ensure the player is properly loaded with the new source
+    player.play();
+});
+        document.querySelector('.close-btn').addEventListener('click',()=>{
+            document.querySelector('.heading').classList.remove('hidden')
+            document.querySelector('.select-item').classList.add('hidden')
+            document.querySelector('.btn-section').classList.add('hidden')
+        })
+        document.querySelector('.search-btn').addEventListener('click',()=>{
+             const text = document.querySelector('.search-input').value
+             const filteredItems = list.filter(item => item.title.toLowerCase().includes(text.toLowerCase()))
+             section.innerHTML = ''
+             filteredItems.forEach(item => {
+            const div = document.createElement('div')
+            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
+            div.setAttribute('data-id', item.id)
+            div.innerHTML = `<div>
+                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
+                </div>
+                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
+                    ${item.title}
+                </div>`
+            div.addEventListener('click', (e) => {
+                const id  = e.currentTarget.getAttribute('data-id')
+                const episodes= list.find(item => item.id == id).episodes
+                const SelectOption = document.getElementById('select-ep')
+                document.querySelector('.heading').classList.add('hidden')
+                document.querySelector('.select-item').classList.remove('hidden')
+                document.querySelector('.btn-section').classList.remove('hidden')
+                clearSelectOptions()
+                episodes.forEach((episode,i)=>{
+
+                  const option  = document.createElement('option')
+                  option.value = episode;
+                  option.textContent = `Episode ${i+1}`
+                  SelectOption.appendChild(option)
+                })
+            })
+            section.appendChild(div)
+        })
+
+        })
+    </script>
+</body>
+
+</html>
