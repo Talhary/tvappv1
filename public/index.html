@@ -17,6 +17,26 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+        .btn{
+            
+          border: white;
+          background-color: white;
+          color:black;
+          padding: 4px 5px;
+          transform: transition all 250ms;
+        }
+        .btn:active{
+            background-color: black;
+            color: white;
+        }
+        .btn:focus{
+            background-color: black;
+            color: white;
+            outline: none;
+            box-shadow: none;
+
+            
+        }
     </style>
 </head>
 
@@ -27,27 +47,32 @@
             <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
                 type="video/mp4" data-quality="hd" />
         </video>
-        <div class="custom-controls py-2 text-xl bg-gray-600 flex gap-x-3 items-center flex-row justify-center">
-            <button id="prevBtn" class="pr-2">
+        <div class="custom-controls py-2 text-xl bg-black flex gap-x-3 items-center flex-row justify-center">
+            <button id="prevBtn" class="pr-2 btn" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
                     <path d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5"/>
                   </svg>
             </button>
-            <button id="playBtn">
+            <button id="playBtn" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                     <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
                   </svg>
             </button>
-            <button id="pauseBtn">
+            <button id="pauseBtn" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">
                     <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5"/>
                   </svg>
             </button>
-            <button id="nextBtn">
+            <button id="nextBtn" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-fast-forward-fill" viewBox="0 0 16 16">
                     <path d="M7.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C.713 12.69 0 12.345 0 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
                     <path d="M15.596 7.304a.802.802 0 0 1 0 1.392l-6.363 3.692C8.713 12.69 8 12.345 8 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
+                  </svg>
+            </button>
+            <button id="fullS" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/>
                   </svg>
             </button>
            
@@ -209,7 +234,15 @@ player.pause()
         const pauseBtn = document.getElementById('pauseBtn');
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
-
+        const fullS = document.getElementById('fullS')
+        fullS.addEventListener('click',()=>{
+            if (player.isFullscreen()) {
+        player.exitFullscreen();
+      } else {
+        player.requestFullscreen();
+      }
+      console.log('full screen')
+        })
         // Play the video
         playBtn.addEventListener('click', () => {
             player.play();
