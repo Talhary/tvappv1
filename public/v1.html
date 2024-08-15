@@ -1,162 +1,490 @@
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drama Selection with Video Player</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <style>
-        body{
-            background-image: url('https://static.vecteezy.com/system/resources/previews/008/968/741/large_2x/multi-layers-yellow-blue-dark-texture-3d-papercut-layers-in-gradient-banner-abstract-paper-cut-art-background-design-for-website-template-topography-map-concept-or-smooth-origami-paper-cut-vector.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Abbasi TV - Video Player</title>
+	  
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+
 </head>
 
-<body class="bg-gray-900 text-white flex flex-col justify-start items-center min-h-screen">
-    <div class="w-[100vw] mx-auto  h-full max-w-xl backdrop-blur-md border border-black shadow">
-
-        <video  playsinline controls id='videoTag' class='w-full max-w-xl mx-auto ' poster='./images/MainBefore.webp' controls title='Video 01' >
-            <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
-                type="video/mp4" data-quality="hd" />
-        </video>
-        <div class="flex gap-x-1 items-center px-2 justify-start     h-20 bg-white bg-opacity-30 w-full">
-            <div class="flex gap-x-1 pb-5">
-                <div>
-                    <img src="./images/MainBefore.webp" class="rotate-[90deg] mt-5 max-w-10 object-contain rounded-full" />
-                </div>
-                
-            </div>
-            <div class=" text-black flex gap-x-2 items-center text-sm px-1 h-20  heading">
-                
-                <div >
-                    <h1 class="text-[0.8rem]">Powered By Fungroup</h1>
-                    <input type="text" placeholder="Enter a Keyword for search" class=" px-2  py-2 my-1 text-black search-input rounded text-[0.7rem]">
-                </div>
-                <button class="bg-white rounded-md  search-btn text-black px-5 py-4"> Search</button>
-            </div>
-            <div class="select-item  hidden">
-                <select name="selectVideo" id="select-ep" class="mx-2 text-black px-2 py-2 ">
-                    <option value="op">Episode 1</option>
-                </select>
-            </div>
-            <div class="btn-section hidden">
-                <button class='play-btn rounded-md p-2 bg-gray-500 bg-gray-200'>Play</button>
-            <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">x</button>
-            </div>
-        </div>
-        <div class="section flex gap-3 m-4 flex-wrap w-[95VW] ">
-        
-        </div>
-    </div>
-    <script>
-          const player = new Plyr('#videoTag');
-         player.pause()
-        function clearSelectOptions() {
-    const selectElement = document.getElementById("select-ep");
-
-    // Remove all options from the select element
-    while (selectElement.options.length > 0) {
-        selectElement.remove(0);
-    }
+<body><h3 style="text-align: center;  padding-top: 68%;"><span style="color: #ff0000;"><span style="color:#ff0000;">Ertugrul Season 3</span></span></h3>
+<h4 style="text-align: center;">Watch Only on Abbasi TV</h4>
+  <div class="row">
+    <div class="col-xs-6"><div style="position: fixed; top: 0px; width: 100%"><center>
+    
+      <video controls poster="http://srv2.jazztv.pk/jazzlive/uploads/categories/25f360d4f35b18a9727759e44e067a3d.jpg" id='videoplayer' class='afterglow'  title='Video 01' width='16' height='9' data-autoresize="fit" controls src="https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EUAXMvA9YIlIpfW3zIcfav8B2r4Z-lYrgroB1hgGj9ZxUQ?"></video>
+    <div style="background-color:Black
+	"><center>
+	    <div>
+	        
+	<!--- PLAYER BUTTONS  -->
+	  <Button type="button" class="buttoncontrols1"  onclick="rwd30svideoplayer()" >
+						<i class="fas fa-fast-backward"></i> 30s
+						</Button>
+						      
+						
+						  <button class="buttoncontrols1"  onclick="rwd10svideoplayer()" 
+						  >
+						<i class="fas fa-step-backward"></i>10s
+						  </button>
+						
+						  <button class="buttoncontrols1" onclick="afterglow.getPlayer('videoplayer').play()" >
+						<i class="fas fa-play"></i></button>
+						  <button class="buttoncontrols1" onclick="afterglow.getPlayer('videoplayer').pause()" >
+						<i class="fas fa-pause"></i>
+						  </button>
+						  
+						  </button>
+						  
+						  <button class="buttoncontrols1" onclick="afterglow.getPlayer('videoplayer').requestFullscreen()" >
+						<i class="fas fa-external-link-square-alt"></i></button>
+						  
+						  <button class="buttoncontrols1" onclick="fwd10svideoplayer()" >10s
+						<i class="fas fa-Step-forward"></i>
+						  </button>
+						  
+						  <button class="buttoncontrols1" onclick="fwd30svideoplayer()" >30s
+						<i class="fas fa-Fast-forward"></i>
+						  </button>
+						  
+						
+						   </div>
+						               <!--- PLAYER BUTTONS --> <!--- FIXED IMAGE ON VIDEO PLAYER --> <!--- IF YOU WANT TO PACE IMAGE ON PLAYER USE COMMENT BOX--> 				
+		<div class='AbbasiTV' src="http://srv2.jazztv.pk:80/jazzlive/uploads/categories/653e6c93d2f50e36a52a28d6871aaba9.png"></div>
+						            </div>
+						            <!-- <div style="width:25%; alignment-adjust:central; height:1px; position:fixed; left:1px; top:1%" > <h2 class="animated"> Abbasi TV </h2> </div></div> <!--- FIXED IMAGE ON VIDEO PLAYER --> <!--- Player Controls Script --> <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/afterglowplayer@1/dist/afterglow.min.js"></script> 
+						         </div>
+						
+					<style>
+    
+/* Created by Abbasi TV For Abbasi TV Background */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
-        const section = document.querySelector('.section')
-        const list = [
-            { id: 1, title: 'Atish', imgsrc: 'https://i.ibb.co/mhjJHCW/image.png', episodes:['https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8']  },
-            { id: 2, title: 'Mera Sultan', imgsrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpY5Tw-l2EsuwY16Gjx6-6h9Z8Dal63QM0sw&amp;usqp=CAU', episodes:['https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Sultan-1/Episode-2.mp4/index.m3u8','https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Sultan-1/Episode-1.mp4/index.m3u8']  },
-            { id: 3, title: 'Random Videos', imgsrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpY5Tw-l2EsuwY16Gjx6-6h9Z8Dal63QM0sw&amp;usqp=CAU', episodes:['http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4','http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4','http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4']  },
-        ]
-        list.forEach(item => {
-            const div = document.createElement('div')
-            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
-            div.setAttribute('data-id', item.id)
-            div.innerHTML = `<div>
-                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
-                </div>
-                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
-                    ${item.title}
-                </div>`
-            div.addEventListener('click', (e) => {
-                const id  = e.currentTarget.getAttribute('data-id')
-                const episodes= list.find(item => item.id == id).episodes
-                const SelectOption = document.getElementById('select-ep')
-                document.querySelector('.heading').classList.add('hidden')
-                document.querySelector('.select-item').classList.remove('hidden')
-                document.querySelector('.btn-section').classList.remove('hidden')
-                clearSelectOptions()
-                episodes.forEach((episode,i)=>{
 
-                  const option  = document.createElement('option')
-                  option.value = episode;
-                  option.textContent = `Episode ${i+1}`
-                  SelectOption.appendChild(option)
-                })
-            })
-            section.appendChild(div)
-        })
-        document.querySelector('.play-btn').addEventListener('click', () => {
-    const selectOption = document.getElementById('select-ep');
-    const newSrc = selectOption.value;
 
-    player.source = {
-        type: 'video',
-        sources: [
-            {
-                src: newSrc,
-                type: 'video/mp4',
-            }
-        ],
-    };
+.AbbasiTV {
+width:30px;
+ alignment-adjust:central;
+ height:30px;
+ position:fixed;
+ left:10px;
+ top:10px;
+ }
+ 
 
-    // Ensure the player is properly loaded with the new source
-    player.play();
-});
-        document.querySelector('.close-btn').addEventListener('click',()=>{
-            document.querySelector('.heading').classList.remove('hidden')
-            document.querySelector('.select-item').classList.add('hidden')
-            document.querySelector('.btn-section').classList.add('hidden')
-        })
-        document.querySelector('.search-btn').addEventListener('click',()=>{
-             const text = document.querySelector('.search-input').value
-             const filteredItems = list.filter(item => item.title.toLowerCase().includes(text.toLowerCase()))
-             section.innerHTML = ''
-             filteredItems.forEach(item => {
-            const div = document.createElement('div')
-            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
-            div.setAttribute('data-id', item.id)
-            div.innerHTML = `<div>
-                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
-                </div>
-                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
-                    ${item.title}
-                </div>`
-            div.addEventListener('click', (e) => {
-                const id  = e.currentTarget.getAttribute('data-id')
-                const episodes= list.find(item => item.id == id).episodes
-                const SelectOption = document.getElementById('select-ep')
-                document.querySelector('.heading').classList.add('hidden')
-                document.querySelector('.select-item').classList.remove('hidden')
-                document.querySelector('.btn-section').classList.remove('hidden')
-                clearSelectOptions()
-                episodes.forEach((episode,i)=>{
 
-                  const option  = document.createElement('option')
-                  option.value = episode;
-                  option.textContent = `Episode ${i+1}`
-                  SelectOption.appendChild(option)
-                })
-            })
-            section.appendChild(div)
-        })
+.button2 {
+    width: 99%;
+}
 
-        })
-    </script>
+    
+
+.button2 {
+    background-color: #171515; 
+    color: white; 
+    border: 5px solid #FF0000;
+}
+
+
+
+.button2 {
+    background-color: #171515; 
+    color: white; 
+    border: 1px solid #211F1F;
+}
+
+.button2:hover {
+    background-color: #040000;
+    color: white;
+}
+
+
+
+/* Created by Abbasi TV For Abbasi TV Background */
+  body {
+  
+    background: #5C5C5C;
+    
+    color: #aaa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: radial-gradient(#000000, hsl(200,30%,6%) );
+
+}
+/* Created by Abbasi TV For Player Control Buttons */    
+.buttoncontrols1 {
+  display: inline-block;
+  padding: 5px 7px;
+  font-size: 10px;
+  
+}
+
+.buttoncotrols1:hover {background-color: #5C5C5C}
+
+.button:active {
+  background-color: #5C5C5C;
+  box-shadow:  #666;
+  transform: translateY(2px);
+}	
+
+
+/* Created by Abbasi TV For Abbasi TV Player */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+ 
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background: url('#') no-repeat center center/cover;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+  /* Copyright © 2020,Abbasi TV All Rights Reserved. */
+  
+  </style>	
+
+<script>
+						var videoplayer = document.getElementById("videoplayer");
+						
+						
+						    function playPausevideoplayer() {
+							
+							    if (videoplayer.paused)
+							        videoplayer.play();
+							    else
+							        videoplayer.pause();
+							
+							document.getElementById('controls2').style.display='block';
+							document.getElementById('controls2').style.display='none';
+							
+							
+						}
+						
+						
+						
+						function rwd10svideoplayer() {
+							 
+							    videoplayer.currentTime=videoplayer.currentTime - 10; 
+						}
+						function fwd10svideoplayer() {
+							 
+							    videoplayer.currentTime=videoplayer.currentTime + 10; 
+						}
+						function rwd30svideoplayer() {
+							 
+							    videoplayer.currentTime=videoplayer.currentTime - 30; 
+						}
+						function fwd30svideoplayer() {
+							 
+							    videoplayer.currentTime=videoplayer.currentTime + 30; 
+						}
+						
+						
+						function toggleFullScreenvideoplayer(){
+							
+							
+								if(videoplayer.requestFullScreen){
+								
+										videoplayer.requestFullScreen();
+									
+							} else if(videoplayer.webkitRequestFullScreen){
+								
+										videoplayer.webkitRequestFullScreen();
+									
+							} else if(videoplayer.mozRequestFullScreen){
+								
+										videoplayer.mozRequestFullScreen();
+									
+							}
+							
+						}
+						
+						</script>
+	    
+
+
+
+   <hr size="0.7" color="#444">
+
+
+<div class="col-xs-6">
+	
+	
+	<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EUAXMvA9YIlIpfW3zIcfav8B2r4Z-lYrgroB1hgGj9ZxUQ?').play();"><button class="button button2">Episode 1</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EbZBAzCs8i9NoA7mTMwdAj4BFkKwN5WQyPpnnz0jH4S0fQ?').play();"><button class="button button2">Episode 2</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ESyTARVtr6BMnFv8spf6MmQB-OKEYEUzVNJJ6QoGcxNsGA?').play();"><button class="button button2">Episode 3</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ETwABcH7RuNPqoNKgDQF5gYBvWJ4y59wjh9nqXSGrjVHiw?').play();"><button class="button button2">Episode 4</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EZaUKF1v4lxFuaxn3khOxQABADsC2t_U9trwXsZwB-Un2g?').play();"><button class="button button2">Episode 5</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EfERF_355p1MvdVMlG9NnpMBpOqcNfQSNZEBJjHQHq7sCg?').play();"><button class="button button2">Episode 6</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQ8EqRKwEwNImawb-mJu554B1_yAimzt7CwQ00Amptyx7Q?').play();"><button class="button button2">Episode 7</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EZZzgwwPEzlGm5yy3MB0clMB_yib-ZDNQOVWJojTzcIdlg?').play();"><button class="button button2">Episode 8</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EfQLkxWxYWdAhA7aSN8UZQABfN9FdfadCibkDe0hsIFHzg?').play();"><button class="button button2">Episode 9</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Ec1jV2m7lJxPoKoebcMxF3MB_axAuV-CtOg8HJ80nkH1nA?').play();"><button class="button button2">Episode 10</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ETsAnOEOgxtAuIxLD6K4heUB5zrd__zxc1VH2Pppj1EpAw?').play();"><button class="button button2">Episode 11</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EeZhxgUrRtdDq3M3cm9uffMBRPINmJCDbtoEwvCcqD6qKA?').play();"><button class="button button2">Episode 12</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQ_YTQselbhFlWE4-ORy8MkBY3XWzRnElNncqjjgq5WSyQ?').play();"><button class="button button2">Episode 13</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EWjKJfcve4tHiaIU9vagwLYBpq3q2mc1Ft4uiKlEloojbA?').play();"><button class="button button2">Episode 14</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ERmd9QAvEwNCpab6clq3e_sB1D2dy-hl3EzSBVvx68jxFg?').play();"><button class="button button2">Episode 15</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EX0teealJmtBlQWIPNs2BFsB8gm7Xx1FZ_U5ZSXocydLGg?').play();"><button class="button button2">Episode 16</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ETF0VbA6z6NNmyvyejqFuycBKJ89AjRDkuLic3Mp4xlI9g?').play();"><button class="button button2">Episode 17</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EW_L6qJx9xFMpHIb8nLltK4BznLfEgAehZxuE8i-qVgbKg?').play();"><button class="button button2">Episode 18</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQUJxSPcxbNPu58xcUUSsCEB_xOVGFiWUabaI5irnNaEVg?').play();"><button class="button button2">Episode 19</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EaR5ac7IHw9LuO7E6abnbnYBdhYs22gW7YWwwfYw0DO26A?').play();"><button class="button button2">Episode 20</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQxQnjIiBBxCiTzylmzlXDoBDRGdIhiG7Q5B6CkVznbfzA?').play();"><button class="button button2">Episode 21</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQBF-jWumJFBmrkT2rc1Eo8BoRzbVn6q4DGZFyZpPvcFCQ?').play();"><button class="button button2">Episode 22</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ERT01qmhAPRMq3gdzLrsB8gBgJm9x_wCB79wTergYpAOCA?').play();"><button class="button button2">Episode 23</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ES42HXZaKn1DgufHVJttzUwBHE_NMENoQSOdeTtNsKVzZA?').play();"><button class="button button2">Episode 24</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Ebj54k2OD1ZLjWMe9FSkTIIBdtzsA6zTZI0kxzSObR_qPg?').play();"><button class="button button2">Episode 25</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ERdWkAAuaVRElg1wiGMUDQQBiyeNIPu06xaM5eL9wmj7wg?').play();"><button class="button button2">Episode 26</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EXgf6OFnH1FGtFXouPEEOwgBdybboGUKJZcOfk2ZZCYLtA?').play();"><button class="button button2">Episode 27</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Ec08pg2gIztDv3HvE-CTJTgB7jOG_aDW6uAidW964AzjYQ?').play();"><button class="button button2">Episode 28</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EV54emAT7UlBjAUm3XlqDu4BfTLeqkWcXFRr7vGMArdeDA?').play();"><button class="button button2">Episode 29</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ESVVcZxScDxNtA8-x_76-kIBBn_Kq7OpgP8_Wyzpjh-meA?').play();"><button class="button button2">Episode 30</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ESKU2jjKmi9Ns4EtRYVAJCMBICz1H2eSfdQJmkKxH1Hrgw?').play();"><button class="button button2">Episode 31</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EYdNhO1pVphOiJ7RppjqZGcB7k0xLERv9hmXQfEQtP4Zaw?').play();"><button class="button button2">Episode 32</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EfPWBvL1gDNIgJQLksLhhDIBU3ybYP96vDb9wK_YaW7WAA?').play();"><button class="button button2">Episode 33</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EUu67iBmUd9EpKLJxTmWxHIBFnzpKNLurqrEq-fb91w74Q?').play();"><button class="button button2">Episode 34</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EczP9lBBLFBMrYh5RRALyz0BTJYjkN3SrjX0Hs1W17OhrA?').play();"><button class="button button2">Episode 35</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EXLhiduDLwdAjLEc2jEruMYBPRn8Bal_k3rMe5S3mjQN0Q?').play();"><button class="button button2">Episode 36</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Eb0AU8Pn4tRLjN9MnBkoJ94B6i-BZ5gwVMPO-Lm6lgnefw?').play();"><button class="button button2">Episode 37</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EdGhxHNPqGpNiWbk5E8PXw0BZLNLOsyIXNNRL2bhloCSag?').play();"><button class="button button2">Episode 38</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EbGdjNYu771KnlYckT2UsQMBOKfbnwdb7S32yEiiIbU1Ow?').play();"><button class="button button2">Episode 39</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EQw0dhYR3O1Mgqnr_zbefB4B32VzRMvMtU7kX8vzq1ZMBg?').play();"><button class="button button2">Episode 40</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ESShx4iOQRxFgaMFYJqpP6gBQ-tSmPz2ewOXB36ymGh5sg?').play();"><button class="button button2">Episode 41</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EUknwlMmbI5Amp3A5ucxaWoBNJ64MBHW1HONkflzp-LXzQ?').play();"><button class="button button2">Episode 42</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Eelq0NoW2o9MnXhQYXhcbGIB7KoxlBpmg_yxp2kg5_x-pw?').play();"><button class="button button2">Episode 43</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EX7G3rzc461Nrz94cIobQwsBmoqARMhwll7slEa6UpIxGg?').play();"><button class="button button2">Episode 44</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EbLDw36f-rBLnfLN6cJjcDkB3mIltWZdaEMCeKLHtZCyBQ?').play();"><button class="button button2">Episode 45</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EVH3_z6VeZJFkILyjNAMLfkBEAeN3KIgKrqh_Au_wSFeIw?').play();"><button class="button button2">Episode 46</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Ecrl8nFmsFVAnZpPRZnMFVwBrwC5Vqc82DcSOmQyMeqvPw?').play();"><button class="button button2">Episode 47</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/Ecl_nbiX6IZBlziCov63THkBqD4Sipcj93u1sLUgGCl83Q?').play();"><button class="button button2">Episode 48</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EbebSKMU9WRHloRMFHuRMwkBoFkpeilw8gfXuxJKp0L0MQ?').play();"><button class="button button2">Episode 49</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ERqxVzpHLL9LuKNsigqANLABr5ItXapw9vKftvh9OhBOXA?').play();"><button class="button button2">Episode 50</button></a></p>
+			
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EYTvQ0U27KpJqi8PCQk996YBzy64PeXiGA_ogx9Y9o6JRQ?').play();"><button class="button button2">Episode 51</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EeP1mzF64xpIuEpSqq8MH0AB14Qndyjak6lIS8xB7K729g?').play();"><button class="button button2">Episode 52</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ET3KY32Qss9NrZfrIE-3p9oB7aRKRb_epEtG15c2gjiTfQ?').play();"><button class="button button2">Episode 53</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EXGjOSkq6eBHpgg5LYYJivkBnI5_lZ601gG3LfD6uVg9Hg?').play();"><button class="button button2">Episode 54</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EbNmPL3heldBmxy4i0ojrjQBdFT1pLD3YDs355LaLn3taw?').play();"><button class="button button2">Episode 55</button></a></p>
+
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EXOpebHolStJp52gbu-jhTwByidr6T-S7swT2eL62T_uRA?').play();"><button class="button button2">Episode 56</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EXELm-pH33FOrM0FFQIpK8IBJRqFQ1HxMx7vtuGUqwyoWQ?').play();"><button class="button button2">Episode 57</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ETEkIyICSKtFsqWmFL4u_qMBkkSkDesskXr0pDSpdcWf3g?').play();"><button class="button button2">Episode 58</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/EVgHulSQnr5AmnMWReFZAykB5ezmcO_XOB6l239nfxjHwQ?').play();"><button class="button button2">Episode 59</button></a></p>
+
+<p style="text-align: center;"><a class="btn btn-default" onClick="afterglow.getPlayer('videoplayer').pause().currentTime(0).src('https://pern-my.sharepoint.com/:v:/g/personal/muhammad_2079274_talmeez_pk/ETE4L98RsgRMlNj8C5R3W1cB7yDe-_jzBPOrTIvrhoOd2w?').play();"><button class="button button2">Last Episode 60</button></a></p>
+
+
+	  </section> 				
+						         </div>
+						         <hr size="0.7" color="#444">
+						      <h5   <p style="text-align: center;">Copyrights © 
+						 <span style="text-decoration: underline;"><span style="color: #00ccff; text-decoration: underline;">Abbasi TV</span></span> - All Rights Reserved.</p>
+	</div>
+	  
+	  
+    </div>
+  </div>
 </body>
 
-</html>
+
+
+
+<script id="wpcp_disable_selection" type="text/javascript">
+//<![CDATA[
+var image_save_msg='You Can Not Save images!';
+	var no_menu_msg='Context Menu disabled!';
+	var smessage = "Content is protected !!";
+
+function disableEnterKey(e)
+{
+	if (e.ctrlKey){
+     var key;
+     if(window.event)
+          key = window.event.keyCode;     //IE
+     else
+          key = e.which;     //firefox (97)
+    //if (key != 17) alert(key);
+     if (key == 97 || key == 65 || key == 67 || key == 99 || key == 88 || key == 120 || key == 26 || key == 85  || key == 86 || key == 83 || key == 43)
+     {
+          show_wpcp_message('You are not allowed to copy content or view source');
+          return false;
+     }else
+     	return true;
+     }
+}
+
+function disable_copy(e)
+{	
+	var elemtype = e.target.nodeName;
+	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+	elemtype = elemtype.toUpperCase();
+	var checker_IMG = '';
+	if (elemtype == "IMG" && checker_IMG == 'checked' && e.detail >= 2) {show_wpcp_message(alertMsg_IMG);return false;}
+	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "OPTION" && elemtype != "EMBED")
+	{
+		if (smessage !== "" && e.detail == 2)
+			show_wpcp_message(smessage);
+		
+		if (isSafari)
+			return true;
+		else
+			return false;
+	}	
+}
+function disable_copy_ie()
+{
+	var elemtype = window.event.srcElement.nodeName;
+	elemtype = elemtype.toUpperCase();
+	if (elemtype == "IMG") {show_wpcp_message(alertMsg_IMG);return false;}
+	if (elemtype != "TEXT" && elemtype != "TEXTAREA" && elemtype != "INPUT" && elemtype != "PASSWORD" && elemtype != "SELECT" && elemtype != "OPTION" && elemtype != "EMBED")
+	{
+		//alert(navigator.userAgent.indexOf('MSIE'));
+			//if (smessage !== "") show_wpcp_message(smessage);
+		return false;
+	}
+}	
+function reEnable()
+{
+	return true;
+}
+document.onkeydown = disableEnterKey;
+document.onselectstart = disable_copy_ie;
+if(navigator.userAgent.indexOf('MSIE')==-1)
+{
+	document.onmousedown = disable_copy;
+	document.onclick = reEnable;
+}
+function disableSelection(target)
+{
+    //For IE This code will work
+    if (typeof target.onselectstart!="undefined")
+    target.onselectstart = disable_copy_ie;
+    
+    //For Firefox This code will work
+    else if (typeof target.style.MozUserSelect!="undefined")
+    {target.style.MozUserSelect="none";}
+    
+    //All other  (ie: Opera) This code will work
+    else
+    target.onmousedown=function(){return false}
+    target.style.cursor = "default";
+}
+//Calling the JS function directly just after body load
+window.onload = function(){disableSelection(document.body);};
+//]]>
+</script>
+	<script id="wpcp_disable_Right_Click" type="text/javascript">
+	//<![CDATA[
+	document.ondragstart = function() { return false;}
+	/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	Disable context menu on images by GreenLava Version 1.0
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+	    function nocontext(e) {
+	       return false;
+	    }
+	    document.oncontextmenu = nocontext;
+	//]]>
+	</script>
+<style>
+.unselectable
+{
+-moz-user-select:none;
+-webkit-user-select:none;
+cursor: default;
+}
+html
+{
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+</style>
+<script id="wpcp_css_disable_selection" type="text/javascript">
+var e = document.getElementsByTagName('body')[0];
+if(e)
+{
+	e.setAttribute('unselectable',on);
+}
+</script>
