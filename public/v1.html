@@ -56,7 +56,7 @@
 
         <video  playsinline controls  id="vid1"  height="300" class='video-js w-full max-w-xl mx-auto ' poster='./images/MainBefore.webp' controls title='Video 01' >
             <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
-                type="video/mp4" data-quality="hd" />
+                type="application/x-mpegURL" data-quality="hd" />
         </video>
         <div class="custom-controls py-2 text-xl bg-black flex gap-x-3 items-center flex-row justify-center">
             <button class="move10b">
@@ -200,7 +200,7 @@ player.pause()
     const selectOption = document.getElementById('select-ep');
 
     const newSrc = selectOption.value;
-    player.src({ src: newSrc, type: 'video/mp4' });
+    player.src({ src: newSrc, type: 'application/x-mpegURL' });
 
   // Optionally, start playing the video automatically
   player.play();
