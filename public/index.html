@@ -26,7 +26,7 @@
             <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
                 type="video/mp4" data-quality="hd" />
         </video>
-        <div class="flex gap-x-1 items-center px-2 justify-start     h-20 bg-white bg-opacity-30 w-full">
+        <div class="flex gap-x-1 items-center px-2 justify-start bg-gray-500  h-20  w-full">
             <div class="flex gap-x-1 pb-5">
                 <div>
                     <img src="./images/MainBefore.webp" class="rotate-[90deg] mt-5 max-w-10 object-contain rounded-full" />
@@ -42,12 +42,13 @@
                 <button class="bg-white rounded-md  search-btn text-black px-5 py-4"> Search</button>
             </div>
             <div class="select-item  hidden">
+                <h3 class="name ml-2 text-black font-semibold"></h3>
                 <select name="selectVideo" id="select-ep" class="mx-2 text-black px-2 py-2 ">
                     <option value="op">Episode 1</option>
                 </select>
             </div>
             <div class="btn-section hidden">
-                <button class='play-btn rounded-md p-2 bg-gray-500 bg-gray-200'>Play</button>
+                <button class='play-btn rounded-md p-2 bg-gray-800 bg-gray-200'>Play</button>
             <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">x</button>
             </div>
         </div>
@@ -74,7 +75,7 @@
             console.log(res)
             res.forEach(item => {
             const div = document.createElement('div')
-            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
+            div.className = 'playVideo  relative flex items-center p-1 bg-white   shadow-white justify-center min-w-20'
             div.setAttribute('data-id', item.id)
             div.innerHTML = `<div>
                     <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
@@ -83,6 +84,12 @@
                     ${item.title}
                 </div>`
             div.addEventListener('click', (e) => {
+                const title = document.querySelector('.name')
+                document.querySelectorAll('.playVideo').forEach(el=>{
+                    el.style.backgroundColor= 'white'
+                })
+                e.currentTarget.style.backgroundColor= 'red'
+                title.textContent = item.title  
                 const id  = e.currentTarget.getAttribute('data-id')
                 const episodes= list.find(item => item.id == id).episodes
                 const SelectOption = document.getElementById('select-ep')
@@ -104,8 +111,8 @@
         
         document.querySelector('.play-btn').addEventListener('click', () => {
     const selectOption = document.getElementById('select-ep');
-    const newSrc = selectOption.value;
 
+    const newSrc = selectOption.value;
     player.source = {
         type: 'video',
         sources: [
