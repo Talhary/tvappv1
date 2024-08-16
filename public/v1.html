@@ -241,12 +241,11 @@
         document.querySelector('.loading').classList.add('hidden')
         list = res
         AddItem(res) })
-      document.querySelector(".play-btn").addEventListener("click", () => {
-        const selectOption = document.getElementById("select-ep");
-
-        const newSrc = selectOption.value;
+      
+      const Play = (src)=>{
+        console.log(src)
         let type;
-        const videoType = newSrc?.split('.')[newSrc.split('.').length-1]
+        const videoType = src?.split('.')[src.split('.').length-1]
         if(videoType === 'm3u8')
         type = 'application/x-mpegURL'
          else if(videoType === 'webm')
@@ -255,9 +254,16 @@
          type = 'video/mp4'
         else
         type = 'video/mp4'
-        player.src({ src: newSrc ,type });
+        player.src({ src: src ,type });
 
         player.play();
+      }
+      
+        document.querySelector(".play-btn").addEventListener("click", () => {
+        const selectOption = document.getElementById("select-ep");
+
+        const newSrc = selectOption.value;
+       Play(newSrc)
 
       });
       document.querySelector(".close-btn").addEventListener("click", () => {
@@ -307,6 +313,7 @@
 
       // Next video (example with static URL, should use a playlist logic for real scenario)
       nextBtn.addEventListener("click", () => {
+        player.pause()
         const selectOption = document.getElementById("select-ep");
 
         const newSrc = list.filter((el) => {
@@ -324,59 +331,44 @@
         }
 
         // Update the select option's text and value
-        const nextOption = selectOption.options[selectOption.selectedIndex];
-        nextOption.text = `Episode ${nextIndex + 1}`;
-        selectOption.value = next;
-
+        // const nextOption = selectOption.options[selectOption.selectedIndex];
+        // nextOption.text = `Episode ${nextIndex + 1}`;
+        // clearSelectOptions();
+        // newSrc.forEach((episode, i) => {
+        //    const option = document.createElement("option");
+        //       option.value = episode;
+        //       option.textContent = `Episode ${i + 1}`;
+        //       SelectOption.appendChild(option);
+        //   });
+        selectOption.selectedIndex = selectOption.selectedIndex+1;
         // Update the video player's source
-        player.src({ src: next,type:'application/x-mpegURL' });
-
-        // Optionally, start playing the video automatically
-        player.play();
+        Play(next)
       });
 
       // Add event listener for the "Previous" button
       prevBtn.addEventListener("click", () => {
-        const selectOption = document.getElementById("select-ep");
-        const selectedValue = selectOption.value;
+        player.pause();
+    const selectOption = document.getElementById("select-ep");
 
-        // Find the array of episodes matching the selected option's value
-        const currentEpisodeObj = list.find((el) =>
-          el.episodes.includes(selectedValue)
-        );
-        if (!currentEpisodeObj) {
-          alert("Episode list not found");
-          return;
-        }
+    const newSrc = list.filter((el) => {
+        return el.episodes.indexOf(selectOption.value) !== -1;
+    })[0].episodes;
 
-        const episodes = currentEpisodeObj.episodes;
+    // Get the index of the previous episode
+    const prevIndex = newSrc.indexOf(selectOption.value) - 1;
+    const previous = newSrc[prevIndex];
 
-        // Find the index of the current episode
-        const currentIndex = episodes.indexOf(selectedValue);
+    // If there's no previous episode, show an alert
+    if (prevIndex < 0) {
+        alert("No Previous Episodes");
+        return;
+    }
 
-        // Calculate the index for the previous episode
-        const prevIndex = currentIndex - 1;
+    // Update the select option's text and value
+    selectOption.selectedIndex = selectOption.selectedIndex - 1;
 
-        // Check if there is a previous episode
-        if (prevIndex < 0) {
-          alert("No More Episodes");
-          return;
-        }
-
-        // Get the previous episode value
-        const prevEpisode = episodes[prevIndex];
-
-        // Update the select option's text and value
-        selectOption.value = prevEpisode;
-        selectOption.options[selectOption.selectedIndex].text = `Episode ${
-          prevIndex + 1
-        }`;
-
-        // Update the video player's source
-        player.src({ src: prevEpisode, type:'application/x-mpegURL' });
-
-        // Optionally, start playing the video automatically
-        player.play();
+    // Update the video player's source
+    Play(previous);
       });
     </script>
   </body>
