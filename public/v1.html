@@ -459,7 +459,7 @@
         selectOption.value = next;
 
         // Update the video player's source
-        player.src({ src: next, type: "video/mp4" });
+        player.src({ src: next,type:'application/x-mpegURL' });
 
         // Optionally, start playing the video automatically
         player.play();
@@ -503,7 +503,7 @@
         }`;
 
         // Update the video player's source
-        player.src({ src: prevEpisode, type: "video/mp4" });
+        player.src({ src: prevEpisode, type:'application/x-mpegURL' });
 
         // Optionally, start playing the video automatically
         player.play();
