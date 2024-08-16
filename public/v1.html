@@ -167,9 +167,7 @@
       }
       const section = document.querySelector(".section");
       let list;
-      fetch("https://sagheeronline7.000webhostapp.com/Talha.2drama.php")
-        .then((res) => res.json())
-        .then((res) => {
+     
           
       list = [
     {
@@ -346,7 +344,7 @@
             });
             section.appendChild(div);
           });
-        });
+
 
       document.querySelector(".play-btn").addEventListener("click", () => {
         const selectOption = document.getElementById("select-ep");
