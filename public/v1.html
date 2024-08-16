@@ -194,7 +194,7 @@
         "imgsrc": "",
         "episodes": [
             "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/NUbac52gbV4?si=134SllBsqkMaPKIv",
-            "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/I9Pyg7PugHk?si=sIQhJ9b-sCRglcR1",
+            "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://www.youtube.com/watch?v=kMMWvhNMk4Y",
             "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/3Hf3PfsjJ6I?si=vJVXaSErAoKUpTlX"
         ]
     },{
@@ -250,11 +250,12 @@
 
         const newSrc = selectOption.value;
         let type;
-        if(newSrc?.split('.')[newSrc.length-1] === 'm3u8')
+        const videoType = newSrc?.split('.')[newSrc.split('.').length-1]
+        if(videoType === 'm3u8')
         type = 'application/x-mpegURL'
-         else if(newSrc?.split('.')[newSrc.length-1] === 'webm')
+         else if(videoType === 'webm')
          type = 'video/webm'
-         else if(newSrc?.split('.')[newSrc.length-1] === 'mp4')
+         else if(videoType === 'mp4')
          type = 'video/mp4'
         else
         type = 'video/mp4'
