@@ -2,7 +2,7 @@
   "name": "video-player",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
+  "type": "commonJs",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -16,6 +16,8 @@
     "@distube/ytdl-core": "^4.14.4",
     "axios": "^1.7.4",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "m3u8stream": "^0.8.6",
+    "node-hls-downloader": "^2.2.0"
   }
 }
