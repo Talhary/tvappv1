@@ -1,356 +1,513 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drama Selection with Video Player</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/afterglow/latest/afterglow.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
     <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <!-- <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> -->
     <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" /> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <style>
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
-        }
-        </style>
-    <style>
-        body{
-            background-image: url('https://static.vecteezy.com/system/resources/previews/008/968/741/large_2x/multi-layers-yellow-blue-dark-texture-3d-papercut-layers-in-gradient-banner-abstract-paper-cut-art-background-design-for-website-template-topography-map-concept-or-smooth-origami-paper-cut-vector.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .btn{
-            
-          border: white;
-          background-color: white;
-          color:black;
-          padding: 4px 5px;
-          transform: transition all 250ms;
-        }
-        .btn:active{
-            background-color: black;
-            color: white;
-        }
-        .btn:focus{
-            background-color: black;
-            color: white;
-            outline: none;
-            box-shadow: none;
-
-            
-        }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
     </style>
-</head>
+    <style>
+      body {
+        background-image: url("https://static.vecteezy.com/system/resources/previews/008/968/741/large_2x/multi-layers-yellow-blue-dark-texture-3d-papercut-layers-in-gradient-banner-abstract-paper-cut-art-background-design-for-website-template-topography-map-concept-or-smooth-origami-paper-cut-vector.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .btn {
+        border: white;
+        background-color: white;
+        color: black;
+        padding: 4px 5px;
+        transform: transition all 250ms;
+      }
+      .btn:active {
+        background-color: black;
+        color: white;
+      }
+      .btn:focus {
+        background-color: black;
+        color: white;
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
+  </head>
 
-<body class="bg-gray-900 text-white flex flex-col justify-start items-center min-h-screen">
-    <div class="w-[100vw] mx-auto  h-full max-w-xl backdrop-blur-md border border-black shadow">
-
-        <video  playsinline controls  id="vid1"  height="300" class='video-js w-full max-w-xl mx-auto ' poster='./images/MainBefore.webp' controls title='Video 01' >
-            <source id="videoSrc" src='https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8'
-                type="video/mp4" data-quality="hd" />
-        </video>
-        <div class="custom-controls py-2 text-xl bg-black flex gap-x-3 items-center flex-row justify-center">
-            <button class="move10b">
-                <span class="material-symbols-outlined rotate-[180deg]">
-                    fast_forward
-                    </span>
-            </button>
-            
-            <button id="prevBtn" class="pr-2 btn" >
-                <span class="material-symbols-outlined">
-                    arrow_back_ios
-                    </span>
-            </button>
-            <button id="fullS" class="btn">
-                <span class="material-symbols-outlined">
-                    fullscreen
-                    </span>
-            </button>
-            <button id="playBtn" class="btn">
-                <span class="material-symbols-outlined">
-                    play_arrow
-                    </span>
-            </button>
-            <button id="pauseBtn" class="btn">
-                <span class="material-symbols-outlined">
-                    pause_circle
-                    </span>
-            </button>
-            <button id="nextBtn" class="btn">
-                <span class="material-symbols-outlined">
-                    arrow_forward_ios
-                </span>
-            </button>
-            <button class="move10f">
-                <span class="material-symbols-outlined ">
-                    fast_forward
-                    </span>
-            </button>
-           
-        </div>
-        <div class="flex gap-x-1 items-center px-2 justify-start bg-[#49501d]  h-20  w-full">
-            <div class="flex gap-x-1 pb-5">
-                <div>
-                    <img src="./images/MainBefore.webp" class="rotate-[90deg] mt-5 max-w-10 object-contain rounded-full" />
-                </div>
-                
-            </div>
-            <div class=" flex gap-x-2 items-center text-sm px-1 h-20  heading">
-                
-                <div >
-                    <h1 class="text-[0.8rem]">Powered By Fungroup</h1>
-                    <input type="text" placeholder="Enter a Keyword for search" class=" px-2  py-2 my-1 text-black search-input rounded text-[0.7rem]">
-                </div>
-                <button class="bg-white rounded-md  search-btn text-black px-5 py-4"> Search</button>
-            </div>
-            <div class="select-item  hidden">
-                <h3 class="name ml-2 font-semibold"></h3>
-                <select name="selectVideo" id="select-ep" class="mx-2 text-black px-2 py-2 ">
-                    <option value="op">Episode 1</option>
-                </select>
-            </div>
-            <div class="btn-section hidden">
-                <button class='play-btn rounded-md p-2 bg-gray-800 bg-gray-200 focus:bg-white focus:text-black '>Play</button>
-            <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">x</button>
-            </div>
-        </div>
-        <div class="section flex gap-3 p-3 flex-wrap bg-[#342520] h-full justify-center items-center">
+  <body
+    class="bg-gray-900 text-white flex flex-col justify-start items-center min-h-screen"
+  >
+    <div
+      class="w-[100vw] mx-auto h-full max-w-xl backdrop-blur-md border border-black shadow"
+    >
+      <video
+        playsinline
+        controls
+        id="vid1"
+        preload='auto'
+        height="300"
+        class="video-js w-full max-w-xl mx-auto"
+        poster="./images/MainBefore.webp"
+        controls
+        title="Video 01"
         
+      >
+        <source
+          id="videoSrc"
+          src="https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/3Hf3PfsjJ6I?si=vJVXaSErAoKUpTlX"
+          type="video/mp4"
+          data-quality="hd"
+        />
+      </video>
+      
+      <div
+        class="custom-controls py-2 text-xl bg-black flex gap-x-3 items-center flex-row justify-center"
+      >
+        <button class="move10b">
+          <span class="material-symbols-outlined rotate-[180deg]">
+            fast_forward
+          </span>
+        </button>
+
+        <button id="prevBtn" class="pr-2 btn">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button id="fullS" class="btn">
+          <span class="material-symbols-outlined"> fullscreen </span>
+        </button>
+        <button id="playBtn" class="btn">
+          <span class="material-symbols-outlined"> play_arrow </span>
+        </button>
+        <button id="pauseBtn" class="btn">
+          <span class="material-symbols-outlined"> pause_circle </span>
+        </button>
+        <button id="nextBtn" class="btn">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+        <button class="move10f">
+          <span class="material-symbols-outlined"> fast_forward </span>
+        </button>
+      </div>
+      <div
+        class="flex gap-x-1 items-center px-2 justify-start bg-[#49501d] h-20 w-full"
+      >
+        <div class="flex gap-x-1 pb-5">
+          <div>
+            <img
+              src="./images/MainBefore.webp"
+              class="rotate-[90deg] mt-5 max-w-10 object-contain rounded-full"
+            />
+          </div>
         </div>
+        <div class="flex gap-x-2 items-center text-sm px-1 h-20 heading">
+          <div>
+            <h1 class="text-[0.8rem]">Powered By Fungroup</h1>
+            <input
+              type="text"
+              placeholder="Enter a Keyword for search"
+              class="px-2 py-2 my-1 text-black search-input rounded text-[0.7rem]"
+            />
+          </div>
+          <button class="bg-white rounded-md search-btn text-black px-5 py-4">
+            Search
+          </button>
+        </div>
+        <div class="select-item hidden">
+          <h3 class="name ml-2 font-semibold"></h3>
+          <select
+            name="selectVideo"
+            id="select-ep"
+            class="mx-2 text-black px-2 py-2"
+          >
+            <option value="op">Episode 1</option>
+          </select>
+        </div>
+        <div class="btn-section hidden">
+          <button
+            class="play-btn rounded-md p-2 bg-gray-800 bg-gray-200 focus:bg-white focus:text-black"
+          >
+            Play
+          </button>
+          <button class="bg-red-500 close-btn p-2 px-4 rounded-md mx-1">
+            x
+          </button>
+        </div>
+      </div>
+      <div
+        class="section flex gap-3 p-3 flex-wrap bg-[#342520] py-10 justify-center items-center"
+      ></div>
     </div>
+    
     <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
     <script>
-        // Get the video element
-       
-    </script>
-    <script>
-const player = videojs('vid1', {});
-
-player.pause()
-
-
-
-
-
-
-
-
-
-        function clearSelectOptions() {
-    const selectElement = document.getElementById("select-ep");
-
-    // Remove all options from the select element
-    while (selectElement.options.length > 0) {
-        selectElement.remove(0);
-    }
-}
-        const section = document.querySelector('.section')
-        let list ;
-        fetch('https://sagheeronline7.000webhostapp.com/Talha.2drama.php').then(res=>res.json())
-        .then(res=>{
-            console.log(res)
-            list = res
-            console.log(res)
-            res.forEach(item => {
-            const div = document.createElement('div')
-            div.className = 'playVideo  relative flex items-center p-1 bg-white   shadow-white justify-center min-w-20'
-            div.setAttribute('data-id', item.id)
-            div.innerHTML = `<div>
-                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
-                </div>
-                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
-                    ${item.title}
-                </div>`
-            div.addEventListener('click', (e) => {
-                const title = document.querySelector('.name')
-                document.querySelectorAll('.playVideo').forEach(el=>{
-                    el.style.backgroundColor= 'white'
-                })
-                e.currentTarget.style.backgroundColor= 'red'
-                title.textContent = item.title  
-                const id  = e.currentTarget.getAttribute('data-id')
-                const episodes= list.find(item => item.id == id).episodes
-                const SelectOption = document.getElementById('select-ep')
-                document.querySelector('.heading').classList.add('hidden')
-                document.querySelector('.select-item').classList.remove('hidden')
-                document.querySelector('.btn-section').classList.remove('hidden')
-                clearSelectOptions()
-                episodes.forEach((episode,i)=>{
-
-                  const option  = document.createElement('option')
-                  option.value = episode;
-                  option.textContent = `Episode ${i+1}`
-                  SelectOption.appendChild(option)
-                })
-            })
-            section.appendChild(div)
-        })
-        })
         
-        document.querySelector('.play-btn').addEventListener('click', () => {
-    const selectOption = document.getElementById('select-ep');
+      const player = videojs('vid1',{})
 
-    const newSrc = selectOption.value;
-    player.src({ src: newSrc, type: 'video/mp4' });
+      function clearSelectOptions() {
+        const selectElement = document.getElementById("select-ep");
 
-  // Optionally, start playing the video automatically
-  player.play();
-
-    // Ensure the player is properly loaded with the new source
-    
-});
-        document.querySelector('.close-btn').addEventListener('click',()=>{
-            document.querySelector('.heading').classList.remove('hidden')
-            document.querySelector('.select-item').classList.add('hidden')
-            document.querySelector('.btn-section').classList.add('hidden')
-        })
-        document.querySelector('.search-btn').addEventListener('click',()=>{
-             const text = document.querySelector('.search-input').value
-             const filteredItems = list.filter(item => item.title.toLowerCase().includes(text.toLowerCase()))
-             section.innerHTML = ''
-             filteredItems.forEach(item => {
-            const div = document.createElement('div')
-            div.className = 'playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 '
-            div.setAttribute('data-id', item.id)
+        // Remove all options from the select element
+        while (selectElement.options.length > 0) {
+          selectElement.remove(0);
+        }
+      }
+      const section = document.querySelector(".section");
+      let list;
+      fetch("https://sagheeronline7.000webhostapp.com/Talha.2drama.php")
+        .then((res) => res.json())
+        .then((res) => {
+          
+      list = [
+    {
+        "id": 1,
+        "title": "Atish",
+        "imgsrc": "https://i.ibb.co/mhjJHCW/image.png",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Kurulus-Osman",
+        "imgsrc": "",
+        "episodes": [
+            "http://cdn4.niazitv.pk:786/Turkish-Dramas-NiaziTV-App/No-backup-needed/Kurulus-Osman-S1-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "http://cdn4.niazitv.pk:786/Turkish-Dramas-NiaziTV-App/No-backup-needed/Kurulus-Osman-S1-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "http://cdn4.niazitv.pk:786/Turkish-Dramas-NiaziTV-App/No-backup-needed/Kurulus-Osman-S1-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "http://cdn4.niazitv.pk:786/Turkish-Dramas-NiaziTV-App/No-backup-needed/Kurulus-Osman-S1-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "http://cdn4.niazitv.pk:786/Turkish-Dramas-NiaziTV-App/No-backup-needed/Kurulus-Osman-S1-Urdu-Dubbed/Episode-1.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "youtube",
+        "imgsrc": "",
+        "episodes": [
+            "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/NUbac52gbV4?si=134SllBsqkMaPKIv",
+            "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/I9Pyg7PugHk?si=sIQhJ9b-sCRglcR1",
+            "https://youtube-player-2bad53bddb91.herokuapp.com/api/v1/video?url=https://youtu.be/3Hf3PfsjJ6I?si=vJVXaSErAoKUpTlX"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "tara",
+        "imgsrc": "https://i.ytimg.com/vi/zvXxQoLpZqQ/maxresdefault.jpg",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "beti",
+        "imgsrc": "https://canvas.tamashaweb.com/jazzlive/uploads/channels/logo/public-news-live.webp?id=15\n",
+        "episodes": [
+            "https://cdn9.niazitv.pk/Niazi-Play/Kurulus-Season-5-Urdu-Dubbed/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-1.mp4/index.m3u8",
+            "https://cdn5.niazitv.pk/Turkish-Dramas-NiaziTV-App-2/Ertugrul-by-PTV-S1/Episode-55.mp4/index.m3u8"
+        ]
+    },{
+        "id": 14,
+        "title": "Atish",
+        "imgsrc": "https://i.ibb.co/mhjJHCW/image.png",
+        "episodes": [
+            "http://playertest.longtailvideo.com/adaptive/wowzaid3/playlist.m3u8",
+            "http://cdn-fms.rbs.com.br/vod/hls_sample1_manifest.m3u8",
+            "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8",
+            'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8'
+        ]
+    }
+]
+         
+          list.forEach((item) => {
+            const div = document.createElement("div");
+            div.className =
+              "playVideo  relative flex items-center p-1 bg-white   shadow-white justify-center min-w-20";
+            div.setAttribute("data-id", item.id);
             div.innerHTML = `<div>
                     <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
                 </div>
                 <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
                     ${item.title}
-                </div>`
-            div.addEventListener('click', (e) => {
-                const id  = e.currentTarget.getAttribute('data-id')
-                const episodes= list.find(item => item.id == id).episodes
-                const SelectOption = document.getElementById('select-ep')
-                document.querySelector('.heading').classList.add('hidden')
-                document.querySelector('.select-item').classList.remove('hidden')
-                document.querySelector('.btn-section').classList.remove('hidden')
-                clearSelectOptions()
-                episodes.forEach((episode,i)=>{
-
-                  const option  = document.createElement('option')
-                  option.value = episode;
-                  option.textContent = `Episode ${i+1}`
-                  SelectOption.appendChild(option)
-                })
-            })
-            section.appendChild(div)
-        })
-
-        })
-
-
-        const video = document.getElementById('vid1');
-        const playBtn = document.getElementById('playBtn');
-        const pauseBtn = document.getElementById('pauseBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-        const fullS = document.getElementById('fullS')
-        document.querySelector('.move10f').addEventListener('click',()=>{
-            player.currentTime(player.currentTime() + 10);
-        })
-        document.querySelector('.move10b').addEventListener('click',()=>{
-            player.currentTime(player.currentTime() - 10);
-        })
-        fullS.addEventListener('click',()=>{
-            if (player.isFullscreen()) {
-        player.exitFullscreen();
-      } else {
-        player.requestFullscreen();
-      }
-      console.log('full screen')
-        })
-        // Play the video
-        playBtn.addEventListener('click', () => {
-            player.play();
+                </div>`;
+            div.addEventListener("click", (e) => {
+              const title = document.querySelector(".name");
+              document.querySelectorAll(".playVideo").forEach((el) => {
+                el.style.backgroundColor = "white";
+              });
+              e.currentTarget.style.backgroundColor = "red";
+              title.textContent = item.title;
+              const id = e.currentTarget.getAttribute("data-id");
+              const episodes = list.find((item) => item.id == id).episodes;
+              const SelectOption = document.getElementById("select-ep");
+              document.querySelector(".heading").classList.add("hidden");
+              document.querySelector(".select-item").classList.remove("hidden");
+              document.querySelector(".btn-section").classList.remove("hidden");
+              clearSelectOptions();
+              episodes.forEach((episode, i) => {
+                const option = document.createElement("option");
+                option.value = episode;
+                option.textContent = `Episode ${i + 1}`;
+                SelectOption.appendChild(option);
+              });
+            });
+            section.appendChild(div);
+          });
         });
 
-        // Pause the video
-        pauseBtn.addEventListener('click', () => {
-            player.pause();
+      document.querySelector(".play-btn").addEventListener("click", () => {
+        const selectOption = document.getElementById("select-ep");
+
+        const newSrc = selectOption.value;
+        console.log(newSrc)
+        player.src({ src: newSrc ,type:'application/x-mpegURL' });
+
+        // Optionally, start playing the video automatically
+        player.play();
+
+        // Ensure the player is properly loaded with the new source
+      });
+      document.querySelector(".close-btn").addEventListener("click", () => {
+        document.querySelector(".heading").classList.remove("hidden");
+        document.querySelector(".select-item").classList.add("hidden");
+        document.querySelector(".btn-section").classList.add("hidden");
+      });
+      document.querySelector(".search-btn").addEventListener("click", () => {
+        const text = document.querySelector(".search-input").value;
+        const filteredItems = list.filter((item) =>
+          item.title.toLowerCase().includes(text.toLowerCase())
+        );
+        section.innerHTML = "";
+        filteredItems.forEach((item) => {
+          const div = document.createElement("div");
+          div.className =
+            "playVideo relative flex items-center p-1 bg-white bg-opacity-40 shadow shadow-md shadow-white justify-center min-w-20 ";
+          div.setAttribute("data-id", item.id);
+          div.innerHTML = `<div>
+                    <img src="${item.imgsrc}" alt="${item.title}" class="object-contain w-[8rem]" />
+                </div>
+                <div class="absolute bottom-2 text-black text-center font-bold bg-white bg-opacity-60 w-fit px-1 rounded-md text-xl w-full">
+                    ${item.title}
+                </div>`;
+          div.addEventListener("click", (e) => {
+            const id = e.currentTarget.getAttribute("data-id");
+            const episodes = list.find((item) => item.id == id).episodes;
+            const SelectOption = document.getElementById("select-ep");
+            document.querySelector(".heading").classList.add("hidden");
+            document.querySelector(".select-item").classList.remove("hidden");
+            document.querySelector(".btn-section").classList.remove("hidden");
+            clearSelectOptions();
+            episodes.forEach((episode, i) => {
+              const option = document.createElement("option");
+              option.value = episode;
+              option.textContent = `Episode ${i + 1}`;
+              SelectOption.appendChild(option);
+            });
+          });
+          section.appendChild(div);
         });
+      });
 
-        // Next video (example with static URL, should use a playlist logic for real scenario)
-        nextBtn.addEventListener('click', () => {
-            const selectOption = document.getElementById('select-ep');
+      const video = document.getElementById("vid1");
+      const playBtn = document.getElementById("playBtn");
+      const pauseBtn = document.getElementById("pauseBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const fullS = document.getElementById("fullS");
+      document.querySelector(".move10f").addEventListener("click", () => {
+        player.currentTime(player.currentTime() + 10);
+      });
+      document.querySelector(".move10b").addEventListener("click", () => {
+        player.currentTime(player.currentTime() - 10);
+      });
+      fullS.addEventListener("click", () => {
+        if (player.isFullscreen()) {
+          player.exitFullscreen();
+        } else {
+          player.requestFullscreen();
+        }
+        console.log("full screen");
+      });
+      // Play the video
+      playBtn.addEventListener("click", () => {
+        player.play();
+      });
 
-            const newSrc = list.filter(el => {
-        return el.episodes.indexOf(selectOption.value) !== -1;
-    })[0].episodes;
+      // Pause the video
+      pauseBtn.addEventListener("click", () => {
+        player.pause();
+      });
 
-    // Get the index of the next episode
-    const nextIndex = newSrc.indexOf(selectOption.value) + 1;
-    const next = newSrc[nextIndex];
+      // Next video (example with static URL, should use a playlist logic for real scenario)
+      nextBtn.addEventListener("click", () => {
+        const selectOption = document.getElementById("select-ep");
 
-    // If there's no next episode, show an alert
-    if (!next) {
-        alert('No More Episodes');
-        return;
-    }
+        const newSrc = list.filter((el) => {
+          return el.episodes.indexOf(selectOption.value) !== -1;
+        })[0].episodes;
 
-    // Update the select option's text and value
-    const nextOption = selectOption.options[selectOption.selectedIndex];
-    nextOption.text = `Episode ${nextIndex + 1}`;
-    selectOption.value = next;
+        // Get the index of the next episode
+        const nextIndex = newSrc.indexOf(selectOption.value) + 1;
+        const next = newSrc[nextIndex];
 
-    // Update the video player's source
-    player.src({ src: next, type: 'video/mp4' });
+        // If there's no next episode, show an alert
+        if (!next) {
+          alert("No More Episodes");
+          return;
+        }
 
-    // Optionally, start playing the video automatically
-    player.play();
-        });
+        // Update the select option's text and value
+        const nextOption = selectOption.options[selectOption.selectedIndex];
+        nextOption.text = `Episode ${nextIndex + 1}`;
+        selectOption.value = next;
 
-// Add event listener for the "Previous" button
-prevBtn.addEventListener('click', () => {
-    const selectOption = document.getElementById('select-ep');
-    const selectedValue = selectOption.value;
+        // Update the video player's source
+        player.src({ src: next, type: "video/mp4" });
 
-    // Find the array of episodes matching the selected option's value
-    const currentEpisodeObj = list.find(el => el.episodes.includes(selectedValue));
-    if (!currentEpisodeObj) {
-        alert('Episode list not found');
-        return;
-    }
+        // Optionally, start playing the video automatically
+        player.play();
+      });
 
-    const episodes = currentEpisodeObj.episodes;
+      // Add event listener for the "Previous" button
+      prevBtn.addEventListener("click", () => {
+        const selectOption = document.getElementById("select-ep");
+        const selectedValue = selectOption.value;
 
-    // Find the index of the current episode
-    const currentIndex = episodes.indexOf(selectedValue);
+        // Find the array of episodes matching the selected option's value
+        const currentEpisodeObj = list.find((el) =>
+          el.episodes.includes(selectedValue)
+        );
+        if (!currentEpisodeObj) {
+          alert("Episode list not found");
+          return;
+        }
 
-    // Calculate the index for the previous episode
-    const prevIndex = currentIndex - 1;
+        const episodes = currentEpisodeObj.episodes;
 
-    // Check if there is a previous episode
-    if (prevIndex < 0) {
-        alert('No More Episodes');
-        return;
-    }
+        // Find the index of the current episode
+        const currentIndex = episodes.indexOf(selectedValue);
 
-    // Get the previous episode value
-    const prevEpisode = episodes[prevIndex];
+        // Calculate the index for the previous episode
+        const prevIndex = currentIndex - 1;
 
-    // Update the select option's text and value
-    selectOption.value = prevEpisode;
-    selectOption.options[selectOption.selectedIndex].text = `Episode ${prevIndex + 1}`;
+        // Check if there is a previous episode
+        if (prevIndex < 0) {
+          alert("No More Episodes");
+          return;
+        }
 
-    // Update the video player's source
-    player.src({ src: prevEpisode, type: 'video/mp4' });
+        // Get the previous episode value
+        const prevEpisode = episodes[prevIndex];
 
-    // Optionally, start playing the video automatically
-    player.play();
-});
+        // Update the select option's text and value
+        selectOption.value = prevEpisode;
+        selectOption.options[selectOption.selectedIndex].text = `Episode ${
+          prevIndex + 1
+        }`;
 
+        // Update the video player's source
+        player.src({ src: prevEpisode, type: "video/mp4" });
 
+        // Optionally, start playing the video automatically
+        player.play();
+      });
     </script>
-</body>
-
+  </body>
 </html>
