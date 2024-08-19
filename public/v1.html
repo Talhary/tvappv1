@@ -72,10 +72,10 @@
   </head>
 
   <body
-    class="bg-gray-900 text-white flex flex-col justify-start items-center min-h-screen"
+    class="bg-gray-900 relative text-white flex flex-col justify-start items-center min-h-screen"
   >
-    <div
-      class="w-[100vw] mx-auto h-full max-w-xl backdrop-blur-md border border-black shadow"
+    <div 
+      class="z-10 w-[100vw] mx-auto fixed h-full max-w-xl  border border-black shadow"
     >
       <video
         playsinline
@@ -173,15 +173,16 @@
           </div>
         </div>
       </div>
-      <div
-        class="section flex gap-3 p-3 flex-wrap bg-[#342520] py-10 justify-center items-center"
-      >
-      <div class="loading h-full text-white">
-        <div class="spinner relative w-16 h-16 text-blue-500"></div>
+     
     </div>
-    </div>
-    </div>
-    
+    <div
+    class="z-0 section mt-[25rem]  flex gap-3 p-3 flex-wrap bg-[#342520] py-10 justify-center items-center w-[100vw] mx-auto "
+  >  
+  <div class="loading h-full text-white">
+    <div class="spinner relative w-16 h-16 text-blue-500">
+   </div>
+</div>
+</div>    
     <script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
     <script>
         
